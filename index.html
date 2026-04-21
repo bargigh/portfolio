@@ -99,7 +99,7 @@
 
         .section {
             padding: 5rem 3rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -121,25 +121,43 @@
             text-align: center;
         }
 
-        /* Gallery Grid */
+        /* Category Headers */
+        .category {
+            margin: 4rem 0 2rem;
+        }
+
+        .category h3 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-align: center;
+            opacity: 0.9;
+            color: #cccccc;
+        }
+
+        /* Gallery Grid - Larger Images */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .gallery-item {
             position: relative;
-            aspect-ratio: 16/9;
+            aspect-ratio: 3/2;
             background: #111111;
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
+            border: 1px solid #333333;
         }
 
         .gallery-item:hover {
             transform: scale(1.02);
+            border-color: #555555;
         }
 
         .gallery-item img {
@@ -155,10 +173,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
             display: flex;
             align-items: flex-end;
-            padding: 1.5rem;
+            padding: 2rem;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -167,18 +185,35 @@
             opacity: 1;
         }
 
-        .gallery-item .info h3 {
-            font-size: 1.1rem;
+        .gallery-item .info h4 {
+            font-size: 1.2rem;
             font-weight: 400;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         .gallery-item .info p {
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.8;
             text-align: left;
             margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Featured Image - Extra Large */
+        .featured-image {
+            grid-column: 1 / -1;
+            aspect-ratio: 21/9;
+            margin-bottom: 2rem;
+        }
+
+        .featured-image .info h4 {
+            font-size: 1.5rem;
+        }
+
+        .featured-image .info p {
+            font-size: 1.1rem;
         }
 
         /* Video Section */
@@ -296,30 +331,6 @@
             letter-spacing: 1px;
         }
 
-        /* Upload Instructions */
-        .upload-note {
-            background: #1a1a1a;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px dashed #444444;
-            text-align: center;
-            border-radius: 5px;
-        }
-
-        .upload-note h4 {
-            color: #cccccc;
-            margin-bottom: 1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .upload-note p {
-            color: #888888;
-            font-size: 0.9rem;
-            text-align: center;
-            margin: 0;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -350,7 +361,15 @@
             
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                gap: 1.5rem;
+            }
+
+            .gallery-item {
+                aspect-ratio: 4/3;
+            }
+
+            .featured-image {
+                aspect-ratio: 16/9;
             }
 
             .video-grid {
@@ -408,58 +427,83 @@
             <h2>Portfolio</h2>
             <p>Selected cinematography work showcasing visual storytelling across feature films, documentaries, and commercial projects.</p>
             
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/portfolio-1.jpg" alt="Cinematography Work 1">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Professional Cinematography</h3>
-                            <p>On-set lighting and camera work</p>
+            <!-- Featured Work -->
+            <div class="category">
+                <h3>Featured Cinematography</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item featured-image">
+                        <img src="images/portfolio-1.jpg" alt="Featured Cinematography Work">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Award-Winning Cinematography</h4>
+                                <p>Professional feature film work showcasing advanced lighting techniques and visual storytelling mastery</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio-2.jpg" alt="Cinematography Work 2">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Film Production</h3>
-                            <p>Behind the scenes cinematography</p>
+            </div>
+
+            <!-- Film Production -->
+            <div class="category">
+                <h3>Film Production</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/portfolio-2.jpg" alt="Film Production Work">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Independent Film</h4>
+                                <p>Behind-the-scenes cinematography from IMDB-credited feature films including "Fall in Love: Shanti Ashanti" and "The Saint of Avenue B"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/portfolio-3.jpg" alt="Studio Production">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Studio Production</h4>
+                                <p>Professional studio cinematography with controlled lighting setups for dramatic narrative sequences</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio-3.jpg" alt="Cinematography Work 3">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Studio Work</h3>
-                            <p>Professional studio cinematography</p>
+            </div>
+
+            <!-- Commercial Work -->
+            <div class="category">
+                <h3>Commercial & Documentary</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/portfolio-4.jpg" alt="Commercial Work">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Commercial Projects</h4>
+                                <p>High-end commercial cinematography with precise technical execution for brand campaigns and corporate content</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/portfolio-5.jpg" alt="Documentary Work">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Documentary Style</h4>
+                                <p>Authentic documentary cinematography capturing real moments with natural lighting and handheld techniques</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio-4.jpg" alt="Cinematography Work 4">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Location Shooting</h3>
-                            <p>On-location cinematography work</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio-5.jpg" alt="Cinematography Work 5">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Visual Storytelling</h3>
-                            <p>Narrative cinematography</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/portfolio-6.jpg" alt="Cinematography Work 6">
-                    <div class="overlay">
-                        <div class="info">
-                            <h3>Professional Projects</h3>
-                            <p>Commercial and film work</p>
+            </div>
+
+            <!-- Technical Excellence -->
+            <div class="category">
+                <h3>Technical Expertise</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/portfolio-6.jpg" alt="Technical Cinematography">
+                        <div class="overlay">
+                            <div class="info">
+                                <h4>Advanced Camera Techniques</h4>
+                                <p>Specialized cinematography showcasing technical mastery in camera movement, framing, and creative vision</p>
+                            </div>
                         </div>
                     </div>
                 </div>
