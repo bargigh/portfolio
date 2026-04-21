@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haim Bargig - Portfolio</title>
+    <title>Haim Bargig - Cinematographer</title>
     <style>
         * {
             margin: 0;
@@ -12,242 +12,404 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 50%, #333333 100%);
-            min-height: 100vh;
+            color: #ffffff;
+            background: #000000;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 3rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #4a4a4a, #666666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #555555, #333333);
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 3rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-toggle {
+            background: none;
+            border: none;
             color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
         }
 
-        .contact-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(85, 85, 85, 0.4);
-        }
-
-        .sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
+        /* Content Sections */
+        .content {
+            background: #000000;
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
+            padding: 5rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section h2 {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .section ul {
-            list-style: none;
-        }
-
-        .section li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .section li:last-child {
-            border-bottom: none;
-        }
-
-        .project {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .project h3 {
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
         }
 
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-align: center;
+        }
+
+        /* Film Grid */
+        .films-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .film {
+            background: #111111;
+            padding: 2rem;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+
+        .film:hover {
+            background: #1a1a1a;
+            border-color: #555555;
+        }
+
+        .film h3 {
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .film .year {
+            color: #888888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .film p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .skill-item h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #111111;
+            padding: 5rem 3rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #ffffff;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #000000;
+            padding: 2rem 3rem;
+            text-align: center;
+            border-top: 1px solid #333333;
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
             }
             
-            .header h1 {
+            .hero .subtitle {
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            
+            .nav {
+                padding: 1.5rem 2rem;
+            }
+            
+            .section {
+                padding: 3rem 2rem;
+            }
+            
+            .section h2 {
                 font-size: 2rem;
             }
             
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
+            .films-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: #333333;
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-logo">Haim Bargig</div>
+        <button class="nav-toggle" onclick="scrollToContact()">Contact</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
             <h1>Haim Bargig</h1>
-            <p>Photographer & Cinematographer</p>
-            <div class="contact-links">
-                <a href="mailto:haim@example.com">
-                    📧 Email
-                </a>
-                <a href="https://linkedin.com/in/haimbargig" target="_blank">
-                    💼 LinkedIn
-                </a>
-                <a href="https://github.com/haimbargig" target="_blank">
-                    💻 GitHub
-                </a>
-            </div>
-        </header>
+            <div class="subtitle">Cinematographer</div>
+            <div class="subtitle" style="opacity: 0.7; font-size: 1rem;">חיים ברגיג</div>
+        </div>
+    </section>
 
-        <div class="sections">
-            <section class="section">
-                <h2>🎬 About Me</h2>
-                <p>Professional cinematographer and visual artist with extensive experience in independent film production. Based between New York and Tel Aviv, I work across Camera and Electrical Department, Additional Crew, and Editorial Department roles, bringing stories to life through compelling visual narratives.</p>
-            </section>
+    <!-- Content -->
+    <div class="content">
+        <!-- About Section -->
+        <section class="section">
+            <h2>About</h2>
+            <p>Professional cinematographer and visual artist with extensive experience in independent film production. Based between New York and Tel Aviv, I work across Camera and Electrical Department, Additional Crew, and Editorial Department roles, bringing stories to life through compelling visual narratives.</p>
+            <p>With over 15 years in cinema production, I specialize in creating authentic, character-driven cinematography that serves the story while maintaining technical excellence.</p>
+        </section>
 
-            <section class="section">
-                <h2>🎥 Professional Skills</h2>
-                <ul>
-                    <li><strong>Cinematography:</strong> Independent Film, Documentary, Narrative Features</li>
-                    <li><strong>Camera Department:</strong> Director of Photography, Camera Operation, Focus Pulling</li>
-                    <li><strong>Electrical Department:</strong> Lighting Design, Gaffer, Key Grip</li>
-                    <li><strong>Post-Production:</strong> Editorial, Color Grading, Visual Storytelling</li>
-                    <li><strong>Equipment:</strong> Professional Cinema Cameras, Lighting Rigs, Grip Equipment</li>
-                    <li><strong>Locations:</strong> New York - Tel Aviv Studio & Location Work</li>
-                </ul>
-            </section>
-
-            <section class="section">
-                <h2>🎬 Featured Films</h2>
-                <div class="project">
-                    <h3>Fall in Love: Shanti Ashanti (2019)</h3>
+        <!-- Films Section -->
+        <section class="section">
+            <h2>Selected Films</h2>
+            <div class="films-grid">
+                <div class="film">
+                    <h3>Fall in Love: Shanti Ashanti</h3>
+                    <div class="year">2019</div>
                     <p>Independent feature film - Camera and Electrical Department. Romantic drama exploring cross-cultural relationships with intimate cinematography and natural lighting design.</p>
                 </div>
-                <div class="project">
-                    <h3>The Saint of Avenue B (2006)</h3>
+                <div class="film">
+                    <h3>The Saint of Avenue B</h3>
+                    <div class="year">2006</div>
                     <p>Independent film - Camera and Electrical Department. Urban drama shot on location in New York City, featuring gritty street cinematography and atmospheric lighting.</p>
                 </div>
-                <div class="project">
-                    <h3>Born Guilty (2006)</h3>
+                <div class="film">
+                    <h3>Born Guilty</h3>
+                    <div class="year">2006</div>
                     <p>Independent film - Editorial and Additional Crew. Psychological drama with focus on character-driven visual storytelling and editorial pacing.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section">
-                <h2>🏆 Professional Experience</h2>
-                <ul>
-                    <li><strong>IMDB Professional</strong> - Camera & Electrical Department, Editorial</li>
-                    <li><strong>Independent Film</strong> - 15+ Years in Cinema Production</li>
-                    <li><strong>Studio Operations</strong> - New York & Tel Aviv Based</li>
-                    <li><strong>Film Credits</strong> - Multiple Feature Films & Productions</li>
-                </ul>
-            </section>
-        </div>
-
-        <footer class="footer">
-            <p>&copy; 2024 Haim Bargig (חיים ברגיג) - Professional Cinematographer. Built with ❤️ and deployed with GitHub Pages.</p>
-            <p><em>Last updated: December 2024</em></p>
-        </footer>
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Expertise</h2>
+            <div class="skills-list">
+                <div class="skill-item">
+                    <h3>Cinematography</h3>
+                    <p>Independent Film, Documentary, Narrative Features</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Camera Department</h3>
+                    <p>Director of Photography, Camera Operation, Focus Pulling</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Electrical Department</h3>
+                    <p>Lighting Design, Gaffer, Key Grip</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Post-Production</h3>
+                    <p>Editorial, Color Grading, Visual Storytelling</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Equipment</h3>
+                    <p>Professional Cinema Cameras, Lighting Rigs, Grip Equipment</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Locations</h3>
+                    <p>New York - Tel Aviv Studio & Location Work</p>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script>
-        // Add some smooth scrolling and interactive effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth reveal animation for sections
-            const sections = document.querySelectorAll('.section');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            });
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>Available for cinematography projects worldwide</p>
+        <div class="contact-info">
+            <a href="mailto:haim@example.com" class="contact-item">Email</a>
+            <a href="https://www.imdb.com/name/nm2532879/" target="_blank" class="contact-item">IMDB</a>
+            <a href="#" class="contact-item">Reel</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Haim Bargig (חיים ברגיג) - Professional Cinematographer</p>
+    </footer>
+
+    <script>
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add subtle parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Fade in sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section, .film');
             sections.forEach(section => {
                 section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(section);
-            });
-
-            // Add click effect to contact links
-            document.querySelectorAll('.contact-links a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
             });
         });
     </script>
