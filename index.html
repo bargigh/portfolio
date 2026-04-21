@@ -22,8 +22,8 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                        url('images/hero-cover.jpg') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -63,6 +63,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0));
         }
 
         .nav-logo {
@@ -72,13 +73,23 @@
             text-transform: uppercase;
         }
 
-        .nav-toggle {
-            background: none;
-            border: none;
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
             color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.7;
         }
 
         /* Content Sections */
@@ -110,7 +121,92 @@
             text-align: center;
         }
 
-        /* Film Grid */
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #111111;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .info h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item .info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-align: left;
+            margin: 0;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: #111111;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-item {
+            position: relative;
+            aspect-ratio: 16/9;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        .video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Film Credits */
         .films-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -150,32 +246,6 @@
             line-height: 1.6;
             opacity: 0.8;
             text-align: left;
-        }
-
-        /* Skills Section */
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .skill-item h3 {
-            font-size: 1.1rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .skill-item p {
-            font-size: 0.95rem;
-            opacity: 0.8;
         }
 
         /* Contact Section */
@@ -226,6 +296,30 @@
             letter-spacing: 1px;
         }
 
+        /* Upload Instructions */
+        .upload-note {
+            background: #1a1a1a;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px dashed #444444;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .upload-note h4 {
+            color: #cccccc;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .upload-note p {
+            color: #888888;
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -241,6 +335,10 @@
             .nav {
                 padding: 1.5rem 2rem;
             }
+
+            .nav-menu {
+                gap: 1rem;
+            }
             
             .section {
                 padding: 3rem 2rem;
@@ -250,14 +348,19 @@
                 font-size: 2rem;
             }
             
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
             .films-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
-            }
-            
-            .skills-list {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
             
             .contact-info {
@@ -282,7 +385,11 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-logo">Haim Bargig</div>
-        <button class="nav-toggle" onclick="scrollToContact()">Contact</button>
+        <ul class="nav-menu">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#films">Films</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
@@ -296,15 +403,100 @@
 
     <!-- Content -->
     <div class="content">
-        <!-- About Section -->
-        <section class="section">
-            <h2>About</h2>
-            <p>Professional cinematographer and visual artist with extensive experience in independent film production. Based between New York and Tel Aviv, I work across Camera and Electrical Department, Additional Crew, and Editorial Department roles, bringing stories to life through compelling visual narratives.</p>
-            <p>With over 15 years in cinema production, I specialize in creating authentic, character-driven cinematography that serves the story while maintaining technical excellence.</p>
+        <!-- Portfolio Gallery Section -->
+        <section class="section" id="work">
+            <h2>Portfolio</h2>
+            <p>Selected cinematography work showcasing visual storytelling across feature films, documentaries, and commercial projects.</p>
+            
+            <div class="upload-note">
+                <h4>📸 Add Your Images</h4>
+                <p>Create an "images" folder and upload your best cinematography stills here.<br>
+                Recommended: High-resolution JPGs, 1920px wide minimum</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 1">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 1</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1478720568477-b956dc04d347?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 2">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 2</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1489599904471-9679c544d0a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 3">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 3</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460176449511-ff5fc8e64c35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 4">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 4</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518281361980-b26bfd556770?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 5">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 5</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Film Still 6">
+                    <div class="overlay">
+                        <div class="info">
+                            <h3>Your Film Still 6</h3>
+                            <p>Replace with your cinematography work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Reel Section -->
+        <section class="section video-section">
+            <h2>Video Reel</h2>
+            <p>Cinematography reels and selected scenes from feature films and commercial projects.</p>
+            
+            <div class="upload-note">
+                <h4>🎬 Add Your Video Reel</h4>
+                <p>Upload your demo reel to YouTube or Vimeo, then replace the embed codes below.<br>
+                Recommended: 2-3 minute showreel highlighting your best cinematography work</p>
+            </div>
+
+            <div class="video-grid">
+                <div class="video-item">
+                    <!-- Replace with your actual video embed -->
+                    <iframe src="https://player.vimeo.com/video/placeholder" title="Demo Reel"></iframe>
+                </div>
+                <div class="video-item">
+                    <!-- Replace with your actual video embed -->
+                    <iframe src="https://www.youtube.com/embed/placeholder" title="Film Excerpt"></iframe>
+                </div>
+            </div>
         </section>
 
         <!-- Films Section -->
-        <section class="section">
+        <section class="section" id="films">
             <h2>Selected Films</h2>
             <div class="films-grid">
                 <div class="film">
@@ -321,37 +513,6 @@
                     <h3>Born Guilty</h3>
                     <div class="year">2006</div>
                     <p>Independent film - Editorial and Additional Crew. Psychological drama with focus on character-driven visual storytelling and editorial pacing.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section">
-            <h2>Expertise</h2>
-            <div class="skills-list">
-                <div class="skill-item">
-                    <h3>Cinematography</h3>
-                    <p>Independent Film, Documentary, Narrative Features</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Camera Department</h3>
-                    <p>Director of Photography, Camera Operation, Focus Pulling</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Electrical Department</h3>
-                    <p>Lighting Design, Gaffer, Key Grip</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Post-Production</h3>
-                    <p>Editorial, Color Grading, Visual Storytelling</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Equipment</h3>
-                    <p>Professional Cinema Cameras, Lighting Rigs, Grip Equipment</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Locations</h3>
-                    <p>New York - Tel Aviv Studio & Location Work</p>
                 </div>
             </div>
         </section>
@@ -374,16 +535,23 @@
     </footer>
 
     <script>
-        function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
 
         // Add subtle parallax effect to hero
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
             if (hero) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
 
@@ -404,7 +572,7 @@
 
         // Observe all sections
         document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.section, .film');
+            const sections = document.querySelectorAll('.section, .film, .gallery-item');
             sections.forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(30px)';
