@@ -48,6 +48,35 @@
             letter-spacing: 1px;
         }
 
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            .nav-menu a {
+                font-size: 0.8rem;
+            }
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -115,9 +144,19 @@
         .image-item {
             width: 100%;
             height: 70vh;
-            background: #111111;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .image-item:hover {
+            background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
+            border-color: #555;
         }
 
         .image-item img {
@@ -129,6 +168,14 @@
 
         .image-item:hover img {
             transform: scale(1.02);
+        }
+
+        .placeholder-text {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .image-caption {
@@ -230,7 +277,11 @@
     <!-- Navigation -->
     <nav class="nav">
         <div class="nav-logo">Haim Bargig</div>
-        <div class="nav-title">Director of Photography</div>
+        <ul class="nav-menu">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#stills">Stills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <!-- Hero Section -->
@@ -243,16 +294,16 @@
     <!-- Content -->
     <div class="content">
         <!-- Work Section -->
-        <section class="work-section">
+        <section class="work-section" id="work">
             <h2 class="section-title">Selected Work</h2>
             
             <!-- Image Grid -->
             <div class="image-grid">
                 <!-- Commercial Work -->
-                <div class="category-header">Commercial</div>
+                <div class="category-header" id="stills">Commercial</div>
                 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Professional+Portrait" alt="Professional Portrait">
+                    <div class="placeholder-text">Professional Portraits</div>
                     <div class="image-caption">
                         <h3>Professional Portraits</h3>
                         <p>High-end corporate and executive photography with exceptional technical quality</p>
@@ -260,7 +311,7 @@
                 </div>
 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Fashion+Photography" alt="Fashion Photography">
+                    <div class="placeholder-text">Fashion & Commercial</div>
                     <div class="image-caption">
                         <h3>Fashion & Commercial</h3>
                         <p>Commercial fashion photography with professional lighting and composition</p>
@@ -268,7 +319,7 @@
                 </div>
 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Advertising+Campaign" alt="Advertising Campaign">
+                    <div class="placeholder-text">Advertising Campaigns</div>
                     <div class="image-caption">
                         <h3>Advertising Campaigns</h3>
                         <p>Professional advertising photography for commercial campaigns and brand work</p>
@@ -279,7 +330,7 @@
                 <div class="category-header">Personal Work</div>
 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Black+%26+White+Portrait" alt="Black and White Portrait">
+                    <div class="placeholder-text">Black & White Mastery</div>
                     <div class="image-caption">
                         <h3>Black & White Mastery</h3>
                         <p>Artistic black and white photography showcasing dramatic lighting and composition</p>
@@ -287,7 +338,7 @@
                 </div>
 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Artistic+Vision" alt="Artistic Photography">
+                    <div class="placeholder-text">Artistic Vision</div>
                     <div class="image-caption">
                         <h3>Artistic Vision</h3>
                         <p>Personal photographic work exploring creative expression and artistic portraiture</p>
@@ -295,7 +346,7 @@
                 </div>
 
                 <div class="image-item">
-                    <img src="https://via.placeholder.com/1200x800/1a1a1a/666666?text=Conceptual+Work" alt="Conceptual Photography">
+                    <div class="placeholder-text">Conceptual Photography</div>
                     <div class="image-caption">
                         <h3>Conceptual Photography</h3>
                         <p>Creative conceptual work with artistic vision and technical excellence</p>
@@ -305,7 +356,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section class="contact">
+        <section class="contact" id="contact">
             <h2>Contact</h2>
             <p>Available for cinematography and photography projects. Based between New York and Tel Aviv.</p>
         </section>
